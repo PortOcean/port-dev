@@ -1,0 +1,84 @@
+{
+    "identifier": "githubRepository",
+    "title": "Repository",
+    "icon": "Github",
+    "ownership": {
+      "type": "Direct"
+    },
+    "schema": {
+      "properties": {
+        "readme": {
+          "title": "README",
+          "type": "string",
+          "format": "markdown"
+        },
+        "url": {
+          "icon": "DefaultProperty",
+          "title": "Repository URL",
+          "type": "string",
+          "format": "url"
+        },
+        "defaultBranch": {
+          "title": "Default branch",
+          "type": "string"
+        },
+        "last_contributor": {
+          "title": "Last contributor",
+          "icon": "TwoUsers",
+          "type": "string",
+          "format": "user"
+        },
+        "last_push": {
+          "icon": "GitPullRequest",
+          "title": "Last push",
+          "description": "Last commit to the main branch",
+          "type": "string",
+          "format": "date-time"
+        },
+        "require_code_owner_review": {
+          "title": "Require code owner review",
+          "type": "boolean",
+          "icon": "DefaultProperty",
+          "description": "Requires review from code owners before a pull request can be merged"
+        },
+        "require_approval_count": {
+          "title": "Require approvals",
+          "type": "number",
+          "icon": "DefaultProperty",
+          "description": "The number of approvals required before merging a pull request"
+        }
+      },
+      "required": []
+    },
+    "calculationProperties": {},
+    "aggregationProperties": {
+      "openPrsCount": {
+        "title": "Open PRs Count",
+        "type": "number",
+        "target": "githubPullRequest",
+        "query": {
+          "combinator": "and",
+          "rules": [
+            {
+              "property": "status",
+              "operator": "=",
+              "value": "open"
+            }
+          ]
+        },
+        "calculationSpec": {
+          "func": "count",
+          "calculationBy": "entities"
+        }
+      }
+    },
+    "relations": {
+      "githubTeams": {
+        "title": "GitHub Teams",
+        "target": "githubTeam",
+        "required": false,
+        "many": true
+      }
+    }
+  }
+  

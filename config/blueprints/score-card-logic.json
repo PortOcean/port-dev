@@ -1,0 +1,71 @@
+[
+  {
+    "identifier": "open_prs_scorecard",
+    "title": "Open PRs per Repository",
+    "levels": [
+      {
+        "color": "paleBlue",
+        "title": "Basic"
+      },
+      {
+        "color": "bronze",
+        "title": "Bronze"
+      },
+      {
+        "color": "silver",
+        "title": "Silver"
+      },
+      {
+        "color": "gold",
+        "title": "Gold"
+      }
+    ],
+    "rules": [
+      {
+        "identifier": "open_prs_gold",
+        "title": "Less than 5 open PRs",
+        "level": "Gold",
+        "query": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "operator": "<",
+              "property": "openPrsCount",
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "identifier": "open_prs_silver",
+        "title": "Less than 10 open PRs",
+        "level": "Silver",
+        "query": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "operator": "<",
+              "property": "openPrsCount",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "identifier": "open_prs_bronze",
+        "title": "Less than 15 open PRs",
+        "level": "Bronze",
+        "query": {
+          "combinator": "and",
+          "conditions": [
+            {
+              "operator": "<",
+              "property": "openPrsCount",
+              "value": 15
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
