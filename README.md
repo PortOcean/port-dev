@@ -1,3 +1,5 @@
+[![.github/workflows/port-jira-exporter.yaml](https://github.com/PortOcean/port-dev/actions/workflows/port-jira-exporter.yaml/badge.svg)](https://github.com/PortOcean/port-dev/actions/workflows/port-jira-exporter.yaml)
+
 # Port Support Engineer Assignment Solution
 
 
