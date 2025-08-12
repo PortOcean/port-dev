@@ -11,18 +11,23 @@ This document outlines my complete solution for the Port Support Engineer assign
 
 ```
 port-dev/
-├── README.md                    # This comprehensive documentation
-├── configs/                     # All configuration files
-│   ├── jira-integration.yaml
-│   ├── scorecard-rules.json
-│   ├── property-definition.json
-│   └── github-workflow.yml
-└── images/                      # All screenshots organized by exercise
+├── README.md                           # This comprehensive documentation
+├── .github/workflows/
+│   ├── port-jira-exporter.yaml        # Jira Ocean integration workflow
+│   └── self-service-action.yaml       # Self-service action workflow
+├── config/
+│   ├── blueprints/
+│   │   ├── github-secret-self-service-action.json
+│   │   ├── pr-aggregation-logic.json
+│   │   └── score-card-logic.json
+│   └── mappings/
+│       └── jiraissue-githubrepo-component-mapping.yaml
+└── images/                             # All screenshots organized by exercise
     ├── exercise1/
     ├── exercise2/
     ├── exercise3/
-    └── exercise4/
-    └── extra/
+    ├── exercise4/
+    └── extra/                          # other relevant images
 ```
 
 ---
@@ -379,3 +384,18 @@ For GitHub Enterprise customers:
 - Create reproducible test cases that isolate specific components
 - Map the complete data flow from Port action → GitHub webhook → workflow execution
 - Test edge cases like special characters
+
+
+### Proof of Test
+
+![Action In Progress](images/exercise4/self_service_action_in_progress.png)
+
+![Action Success](images/exercise4/self_service_action_success.png)
+
+![Action Log](images/exercise4/self_service_action_audit_log.png)
+
+
+### Other Images
+
+![Data Source Page](images/extra/active_data_sources.png)
+![Entities Audit Log](images/extra/audit_log_entities.png)
