@@ -1,4 +1,4 @@
-[![.github/workflows/port-jira-exporter.yaml](https://github.com/PortOcean/port-dev/actions/workflows/port-jira-exporter.yaml/badge.svg)](https://github.com/PortOcean/port-dev/actions/workflows/port-jira-exporter.yaml)
+[![.github/workflows/jira-exporter.yaml](https://github.com/PortOcean/port-dev/actions/workflows/jira-exporter.yaml/badge.svg)](https://github.com/PortOcean/port-dev/actions/workflows/jira-exporter.yaml)
 
 # Port Support Engineer Assignment Solution
 
@@ -13,7 +13,7 @@ This document outlines my complete solution for the Port Support Engineer assign
 port-dev/
 ├── README.md                           # This comprehensive documentation
 ├── .github/workflows/
-│   ├── port-jira-exporter.yaml        # Jira Ocean integration workflow
+│   ├── jira-exporter.yaml        # Jira Ocean integration workflow
 │   └── self-service-action.yaml       # Self-service action workflow
 ├── config/
 │   ├── blueprints/
@@ -127,7 +127,7 @@ To meet the "No Hosted by Port" requirement, I deployed the Jira Ocean integrati
 This gives me full control over the deployment and automates the data synchronization process. The workflow uses the official Port Ocean Jira integration Docker image and runs on GitHub's infrastructure, but I maintain full control over the configuration, scheduling, and management. For secure access, I configured all necessary credentials (Jira API token, Port credentials) as encrypted secrets in my GitHub repository.
 
 
-**Configuration:** [View GitHub Workflow](.github/workflows/port-jira-exporter.yaml)
+**Configuration:** [View GitHub Workflow](.github/workflows/jira-exporter.yaml)
 
 **Evidence:** ![Integration Deployment](images/exercise2/jira_ocean_integration_deployment.png)
 
