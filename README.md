@@ -44,7 +44,10 @@ Using the provided Kubernetes deployment object, I developed the following JQ pa
 .status.replicas
 ```
 
-**Explanation:** This is a simple path. You just go into the status section and grab the replicas number.
+**Explanation:** 
+- `.` - We start at the root of the JSON object
+- `.status` - Then we dive into the status section 
+- `.replicas` - Finally we grab the replicas value to see how many pods are currently running
 
 **Evidence:** ![K8s Replica Count](./images/exercise1/k8s_replica_count.png)
 
@@ -54,7 +57,11 @@ Using the provided Kubernetes deployment object, I developed the following JQ pa
 .spec.strategy.type
 ```
 
-**Explanation:** To find the deployment strategy, you navigate into the spec, then into strategy, and finally pull out the type field to see how it's set up, which is RollingUpdate in this case.
+**Explanation:** 
+- `.` - Starting from the root object
+- `.spec` - We go into the spec section where all the deployment config lives
+- `.strategy` - Then into the strategy part 
+- `.type` - And pull out the type to see what deployment strategy we're using, which is (RollingUpdate) in this case
 
 **Evidence:** ![K8s Deployment Strategy](./images/exercise1/k8s_deployment_strategy.png)
 
@@ -64,7 +71,14 @@ Using the provided Kubernetes deployment object, I developed the following JQ pa
 .metadata.labels.service + "-" + .metadata.labels.environment
 ```
 
-**Explanation:** This pattern grabs the service label, sticks a hyphen in the middle, and then adds the environment label right after it. It's just a way of putting those two values together into one string.
+**Explanation:** 
+- `.` - Start at the root
+- `.metadata` - Go into the metadata section
+- `.labels` - Find the labels object
+- `.service` - Grab the service label value
+- `+` - Stick them together with...
+- `"-"` - A hyphen in between
+- `.metadata.labels.environment` - Plus the environment label value from the same labels section
 
 **Evidence:** ![K8s Labels Concatenation](./images/exercise1/k8s_labels_concat.png)
 
@@ -77,10 +91,12 @@ Using the provided Kubernetes deployment object, I developed the following JQ pa
 ```
 
 **Explanation:**
-- `.fields.subtasks`: This part finds the list of subtasks.
-- `[]`: It then goes through each subtask, one at a time.
-- `.key`: For each subtask, it pulls out the key, which is the ID.
-- `[...]`: Finally, it collects all those IDs and puts them into a new array.
+- `.` - Start at the root object
+- `.fields` - Jump into the fields section where all the issue data sits
+- `.subtasks` - Find the subtasks array
+- `[]` - Loop through each subtask in that array
+- `.key` - Pull out the key field from each one (that's the issue ID we want)
+- `[...]` - Collect all those keys and bundle them up into an array
 
 **Evidence:** ![Jira Subtasks](./images/exercise1/jira_subtasks.png)
 
@@ -120,6 +136,12 @@ This gives me full control over the deployment and automates the data synchroniz
 In Port's Builder, I added a new relation from "Jira Issue" to "Repository." This link allows Port to connect issues to their respective GitHub repos via Jira components. This process is covered in the documentation on [relating blueprints](https://docs.port.io/build-your-software-catalog/customize-integrations/configure-data-model/relate-blueprints/).
 
 **Evidence:** ![Port Relation Configuration](images/exercise2/jiraissue_githubrepo_component_working_relation_proof.png)
+
+### Data Sources Integration Status
+
+Both integrations are now active and successfully syncing data to Port's catalog.
+
+**Evidence:** ![Data Sources Page](./images/exercise2/active_data_sources.png)
 
 ### Jira Components Setup
 
@@ -274,8 +296,8 @@ When a customer's self-service action gets stuck on "IN PROGRESS" and doesn't tr
 
 ### Authentication and Secrets
 
-- **Verify Port's GitHub token is valid:** Check token expiration and scopes for the target repository.
-- **GitHub App vs Personal Access Token:** Confirm you're using the correct authentication method
+- **Verify Port's GitHub token is valid:** Check token expiration and scopes for the target repository
+- **GitHub App vs Personal Access Token:** Confirm the correct authentication method is being used
 - **Organization-level permissions:** For org repos, ensure the GitHub App has org-wide access or is specifically granted to the repository
 
 **Port API Token Configuration:**
