@@ -416,8 +416,4 @@ For GitHub Enterprise customers:
 
 ![Action Log](images/exercise4/self_service_action_audit_log.png)
 
-
-### Other Images
-
-![Data Source Page](images/extra/active_data_sources.png)
 ![Entities Audit Log](images/extra/audit_log_entities.png)
