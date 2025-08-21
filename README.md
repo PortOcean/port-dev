@@ -410,10 +410,14 @@ For GitHub Enterprise customers:
 
 ### Proof of Test
 
+#### Action In Progress
 ![Action In Progress](images/exercise4/self_service_action_in_progress.png)
 
+#### Action Success
 ![Action Success](images/exercise4/self_service_action_success.png)
 
+#### Action Log
 ![Action Log](images/exercise4/self_service_action_audit_log.png)
 
+#### Entities Audit Log
 ![Entities Audit Log](images/extra/audit_log_entities.png)
