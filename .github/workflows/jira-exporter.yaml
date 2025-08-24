@@ -3,7 +3,7 @@
 # jira_host: The URL of your Jira, for example: https://example.atlassian.net
 # atlassian_user_email: The email of the user used to query Jira
 # atlassian_user_token: You can configure the user token on the <a target="_blank" href="https://id.atlassian.com/manage-profile/security/api-tokens">Atlassian account page</a>
-
+name: Jira Exporter Workflow
 on:
     workflow_dispatch:
     schedule:
